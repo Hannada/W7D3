@@ -5,10 +5,9 @@ const pokemonReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_POKEMON: {
       let newPokemon = {};
-      state.forEach(pokemon => {newPokemon[pokemon.id] = pokemon});
+      Object.keys(action.pokemon).forEach( id => {newPokemon[id] = action.pokemon[id]});
       return newPokemon;
     }
-      
     default: 
       return state;
   }
